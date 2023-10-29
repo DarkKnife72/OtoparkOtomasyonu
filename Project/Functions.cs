@@ -21,6 +21,7 @@ namespace Project
             {
                 Main.pictureBox1.ImageLocation = "https://clipart-library.com/2023/Admin-Profile-PNG-Clipart.png";
                 Main.toolStripMenuItem3.Visible = true;
+                Main.toolStripMenuItem4.Visible = true;
             }
             else
             {

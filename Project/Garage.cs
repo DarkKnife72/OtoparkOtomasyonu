@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using Microsoft.VisualBasic.Devices;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -20,12 +21,10 @@ namespace Project
         }
 
         private void Garage_Load(object sender, EventArgs e)
-        {
+        {            
             /* Sadece butonları oluşturma kısmı internetten yardım alınarak yapıldı. */
             int AddedButton_Height = 0;
-            int LeftSpace = 0, TopSpace = 0;
-
-            Connection.conn.Open();
+            int LeftSpace = 0, TopSpace = 0;            
 
             string sql = "SELECT * FROM garage";
             MySqlCommand cmd = new MySqlCommand(sql, Connection.conn);
@@ -72,9 +71,14 @@ namespace Project
                                 string update_sql = "UPDATE garage SET vehicle = -1 WHERE vehicle = " + int.Parse(vehicle_id) + "";                            
                                 MySqlCommand update_cmd = new MySqlCommand(update_sql, Connection.conn);
                                 update_cmd.ExecuteNonQuery();
+                                string plate = btn.Text.Replace("Dolu Sıra - ", "");
+                                MessageBox.Show(plate);
                                 btn.Text = "Boş Sıra - " + now_i_id;
                                 btn.Name = "btn_"+now_i_id;
-                                btn.BackColor = Color.Green;                            
+                                btn.BackColor = Color.Green;
+                                string log_sql = "INSERT INTO logs SET log_type = 1, user = '" + Functions.AdminUsername + "', plate = '" + plate + "', date = " + DateTime.Now + "";
+                                MySqlCommand log_cmd = new MySqlCommand(log_sql, Connection.conn);
+                                log_cmd.ExecuteNonQuery();
                                 MessageBox.Show("Belirtilen araç otopark içerisinden çıkartıldı.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Question);
                             }
                             

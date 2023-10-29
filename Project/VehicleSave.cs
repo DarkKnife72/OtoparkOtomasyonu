@@ -47,14 +47,11 @@ namespace Project
                         rdr.Close();
                         string sql = "INSERT INTO vehicles (vehicleBrand, vehicleModel, vehiclePlate, vehicleOwner) VALUES ('" + saveBrand.Text + "','" + saveModel.Text + "', '" + savePlate.Text + "', '" + saveOwner.Text + "')";                        
                         MySqlCommand cmd = new MySqlCommand(sql, Connection.conn);
-                        cmd.ExecuteNonQuery();                        
-                        string sqlq = "SELECT * FROM vehicles WHERE vehiclePlate = '" + savePlate.Text + "'";
-                        MySqlCommand sqlq_cmd = new MySqlCommand(sqlq, Connection.conn);
-                        MySqlDataReader sqlq_rdr = sqlq_cmd.ExecuteReader();
-                        if (sqlq_rdr.Read()) 
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show(cmd.LastInsertedId.ToString());
+                        if (true) 
                         {
-                            int vehicle_id = (int)sqlq_rdr[0];
-                            sqlq_rdr.Close();
+                            int vehicle_id = (int)cmd.LastInsertedId;
                             string garage_sql = "SELECT * FROM garage WHERE vehicle = -1";
                             MySqlCommand garage_cmd = new MySqlCommand(garage_sql, Connection.conn);
                             MySqlDataReader garage_rdr = garage_cmd.ExecuteReader();
@@ -65,10 +62,20 @@ namespace Project
                                 garage_rdr.Close();
                                 MySqlCommand update_cmd = new MySqlCommand(update_sql, Connection.conn);
                                 update_cmd.ExecuteNonQuery();
-                            }                                                        
+                                string log_sql = "INSERT INTO logs SET log_type = 0, user = '"+Functions.AdminUsername+"', plate = '"+savePlate.Text+"', date = "+ DateTime.Now + "";                        
+                                MySqlCommand log_cmd = new MySqlCommand(log_sql, Connection.conn);
+                                log_cmd.ExecuteNonQuery();
+                                MessageBox.Show("Araç başarıyla otopark içerisine kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                            }  
+                            else
+                            {
+                                string delete_sql = "DELETE FROM vehicles WHERE vehiclePlate = '"+savePlate.Text+"'";
+                                MySqlCommand delete_cmd = new MySqlCommand(delete_sql, Connection.conn);
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Garaj içerisinde boş yer kalmadığı için araç garaja alınmadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }                                                                        
-                    }                    
-                    return;
+                    }                                       
                 }
                 catch (Exception ex)
                 {

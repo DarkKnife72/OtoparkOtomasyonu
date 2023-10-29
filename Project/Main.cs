@@ -70,9 +70,9 @@ namespace Project
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {            
+        {
             try
-            {                
+            {
                 CheckNowVehicle();
             }
             catch
@@ -86,6 +86,12 @@ namespace Project
         {
             Form user_add = new UserAdd();
             user_add.Show();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Form logs = new LogList();
+            logs.Show();
         }
     }
 }

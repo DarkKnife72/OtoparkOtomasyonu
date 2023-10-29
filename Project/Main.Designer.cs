@@ -33,6 +33,7 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripMenuItem();
+            toolStripMenuItem4 = new ToolStripMenuItem();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             mainAdminLabel = new Label();
@@ -55,7 +56,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolStripMenuItem3 });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(8, 3, 0, 3);
@@ -87,6 +88,14 @@
             toolStripMenuItem3.Text = "Kullanıcı Ekle";
             toolStripMenuItem3.Visible = false;
             toolStripMenuItem3.Click += toolStripMenuItem3_Click;
+            // 
+            // toolStripMenuItem4
+            // 
+            toolStripMenuItem4.Name = "toolStripMenuItem4";
+            toolStripMenuItem4.Size = new Size(58, 19);
+            toolStripMenuItem4.Text = "Kayıtlar";
+            toolStripMenuItem4.Visible = false;
+            toolStripMenuItem4.Click += toolStripMenuItem4_Click;
             // 
             // label1
             // 
@@ -146,6 +155,7 @@
 
         #endregion
 
+        public static ToolStripMenuItem toolStripMenuItem4;
         public static DataGridView dataGridView1;
         public static MenuStrip menuStrip1;
         public static ToolStripMenuItem toolStripMenuItem1;
