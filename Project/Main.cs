@@ -2,6 +2,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.Text;
 using System.Security.Cryptography;
+using System.Windows.Forms;
 
 namespace Project
 {
@@ -47,33 +48,68 @@ namespace Project
 
         }
 
-        public void CheckNowVehicle()
+        public void TotalCars()
         {
-            try
+            string sql = "SELECT id FROM vehicles";
+            MySqlCommand cmd = new MySqlCommand(sql, Connection.conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            int count = 0;
+            while (rdr.Read())
             {
-                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM vehicles", Connection.conn);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
+                count++;
+            }
+            mainLabelTotalCars.Text = count.ToString();
+            rdr.Close();
+        }
 
-                dataGridView1.DataSource = ds.Tables[0];
-                dataGridView1.Columns[0].HeaderCell.Value = "Araç NO";
-                dataGridView1.Columns[1].HeaderCell.Value = "Araç Markasý";
-                dataGridView1.Columns[2].HeaderCell.Value = "Araç Modeli";
-                dataGridView1.Columns[3].HeaderCell.Value = "Araç Modeli";
-                dataGridView1.Columns[4].HeaderCell.Value = "Araç Sahibi";
-            }
-            catch
+        public void TotalStaff()
+        {
+            string sql = "SELECT id FROM admin_accounts";
+            MySqlCommand cmd = new MySqlCommand(sql, Connection.conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            int count = 0;
+            while (rdr.Read())
             {
-                MessageBox.Show("Veritabaný hatasý oluþtu. (S-1)", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dataGridView1.Visible = false;
+                count++;
             }
+            mainLabelTotalStaff.Text = count.ToString();
+            rdr.Close();
+        }
+
+        public void TotalPark()
+        {
+            string sql = "SELECT vehicle FROM garage WHERE vehicle = -1";
+            MySqlCommand cmd = new MySqlCommand(sql, Connection.conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            int count = 0;
+            while (rdr.Read())
+            {
+                count++;
+            }
+            mainLabelTotalPark.Text = count.ToString();
+            rdr.Close();
+        }
+
+        public void TotalCash()
+        {
+            string sql = "SELECT cash FROM management";
+            MySqlCommand cmd = new MySqlCommand(sql, Connection.conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                mainLabelTotalCash.Text = rdr[0].ToString() + " TL";
+                rdr.Close();
+            }            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
-                CheckNowVehicle();
+                TotalCars();
+                TotalStaff();
+                TotalPark();
+                TotalCash();                                
             }
             catch
             {

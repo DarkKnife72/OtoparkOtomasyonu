@@ -20,7 +20,15 @@ namespace Project
 
         private void AdminLogin_Load(object sender, EventArgs e)
         {
-            Connection.conn.Open();
+            try
+            {
+                Connection.conn.Open();
+            }
+            catch
+            {
+                MessageBox.Show("Veritabanı bağlantısı sağlanamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
         }
 
         private void adminLoginButton_Click(object sender, EventArgs e)

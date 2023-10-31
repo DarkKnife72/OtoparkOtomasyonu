@@ -28,31 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             menuStrip1 = new MenuStrip();
             toolStripMenuItem1 = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripMenuItem();
             toolStripMenuItem4 = new ToolStripMenuItem();
-            label1 = new Label();
             pictureBox1 = new PictureBox();
             mainAdminLabel = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1 = new Panel();
+            mainLabelTotalCars = new Label();
+            label1 = new Label();
+            pictureBox2 = new PictureBox();
+            panel2 = new Panel();
+            mainLabelTotalStaff = new Label();
+            label3 = new Label();
+            pictureBox3 = new PictureBox();
+            panel3 = new Panel();
+            mainLabelTotalPark = new Label();
+            label4 = new Label();
+            pictureBox4 = new PictureBox();
+            mainManagementPanel = new Panel();
+            mainLabelTotalCash = new Label();
+            label5 = new Label();
+            pictureBox5 = new PictureBox();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            mainManagementPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.BackgroundColor = SystemColors.ControlDarkDark;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.GridColor = Color.White;
-            dataGridView1.Location = new Point(13, 137);
-            dataGridView1.Margin = new Padding(4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(910, 401);
-            dataGridView1.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -97,18 +107,6 @@
             toolStripMenuItem4.Visible = false;
             toolStripMenuItem4.Click += toolStripMenuItem4_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(13, 100);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(194, 20);
-            label1.TabIndex = 2;
-            label1.Text = "Otopark İçerisindeki Araçlar";
-            label1.Click += label1_Click;
-            // 
             // pictureBox1
             // 
             pictureBox1.Location = new Point(13, 42);
@@ -127,16 +125,175 @@
             mainAdminLabel.TabIndex = 11;
             mainAdminLabel.Text = "label5";
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(64, 64, 64);
+            panel1.Controls.Add(mainLabelTotalCars);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(pictureBox2);
+            panel1.Location = new Point(12, 109);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(296, 78);
+            panel1.TabIndex = 12;
+            // 
+            // mainLabelTotalCars
+            // 
+            mainLabelTotalCars.AutoSize = true;
+            mainLabelTotalCars.Location = new Point(3, 18);
+            mainLabelTotalCars.Name = "mainLabelTotalCars";
+            mainLabelTotalCars.Size = new Size(22, 21);
+            mainLabelTotalCars.TabIndex = 2;
+            mainLabelTotalCars.Text = "-1";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(3, 50);
+            label1.Name = "label1";
+            label1.Size = new Size(132, 21);
+            label1.TabIndex = 1;
+            label1.Text = "Garajdaki Araçlar";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(219, 3);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(74, 54);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(64, 64, 64);
+            panel2.Controls.Add(mainLabelTotalStaff);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(pictureBox3);
+            panel2.Location = new Point(314, 109);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(296, 78);
+            panel2.TabIndex = 13;
+            // 
+            // mainLabelTotalStaff
+            // 
+            mainLabelTotalStaff.AutoSize = true;
+            mainLabelTotalStaff.Location = new Point(3, 18);
+            mainLabelTotalStaff.Name = "mainLabelTotalStaff";
+            mainLabelTotalStaff.Size = new Size(22, 21);
+            mainLabelTotalStaff.TabIndex = 2;
+            mainLabelTotalStaff.Text = "-1";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(3, 50);
+            label3.Name = "label3";
+            label3.Size = new Size(161, 21);
+            label3.TabIndex = 1;
+            label3.Text = "Toplam Çalışan Sayısı";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(219, 3);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(74, 54);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 0;
+            pictureBox3.TabStop = false;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(64, 64, 64);
+            panel3.Controls.Add(mainLabelTotalPark);
+            panel3.Controls.Add(label4);
+            panel3.Controls.Add(pictureBox4);
+            panel3.Location = new Point(616, 109);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(296, 78);
+            panel3.TabIndex = 14;
+            // 
+            // mainLabelTotalPark
+            // 
+            mainLabelTotalPark.AutoSize = true;
+            mainLabelTotalPark.Location = new Point(3, 18);
+            mainLabelTotalPark.Name = "mainLabelTotalPark";
+            mainLabelTotalPark.Size = new Size(22, 21);
+            mainLabelTotalPark.TabIndex = 2;
+            mainLabelTotalPark.Text = "-1";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(3, 50);
+            label4.Name = "label4";
+            label4.Size = new Size(122, 21);
+            label4.TabIndex = 1;
+            label4.Text = "Boş Park Yerleri";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(219, 3);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(74, 54);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 0;
+            pictureBox4.TabStop = false;
+            // 
+            // mainManagementPanel
+            // 
+            mainManagementPanel.BackColor = Color.FromArgb(64, 64, 64);
+            mainManagementPanel.Controls.Add(mainLabelTotalCash);
+            mainManagementPanel.Controls.Add(label5);
+            mainManagementPanel.Controls.Add(pictureBox5);
+            mainManagementPanel.Location = new Point(12, 233);
+            mainManagementPanel.Name = "mainManagementPanel";
+            mainManagementPanel.Size = new Size(296, 78);
+            mainManagementPanel.TabIndex = 15;
+            mainManagementPanel.Visible = false;
+            // 
+            // mainLabelTotalCash
+            // 
+            mainLabelTotalCash.AutoSize = true;
+            mainLabelTotalCash.Location = new Point(3, 18);
+            mainLabelTotalCash.Name = "mainLabelTotalCash";
+            mainLabelTotalCash.Size = new Size(22, 21);
+            mainLabelTotalCash.TabIndex = 2;
+            mainLabelTotalCash.Text = "-1";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(3, 50);
+            label5.Name = "label5";
+            label5.Size = new Size(158, 21);
+            label5.TabIndex = 1;
+            label5.Text = "Kasada Bulunan Para";
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(219, 3);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(74, 54);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 0;
+            pictureBox5.TabStop = false;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(933, 562);
+            Controls.Add(mainManagementPanel);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(mainAdminLabel);
             Controls.Add(pictureBox1);
-            Controls.Add(label1);
-            Controls.Add(dataGridView1);
             Controls.Add(menuStrip1);
             Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             ForeColor = SystemColors.Control;
@@ -145,24 +302,49 @@
             Name = "Main";
             Text = "Otopark Yönetimi";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            mainManagementPanel.ResumeLayout(false);
+            mainManagementPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        public static Panel mainManagementPanel;
+        public static Label mainLabelTotalCash;
+        public static Label label5;
+        public static PictureBox pictureBox5;
+        public static Panel panel2;
+        public static Label mainLabelTotalStaff;
+        public static Label label3;
+        public static PictureBox pictureBox3;
         public static ToolStripMenuItem toolStripMenuItem4;
-        public static DataGridView dataGridView1;
         public static MenuStrip menuStrip1;
         public static ToolStripMenuItem toolStripMenuItem1;
         public static ToolStripMenuItem toolStripMenuItem2;
-        public static Label label1;
         public static PictureBox pictureBox1;
         public static Label mainAdminLabel;
         public static ToolStripMenuItem toolStripMenuItem3;
+        public static Panel panel1;
+        public static Label label1;
+        public static PictureBox pictureBox2;
+        public static Label mainLabelTotalCars;
+        public static Panel panel3;
+        public static Label mainLabelTotalPark;
+        public static Label label4;
+        public static PictureBox pictureBox4;
     }
 }

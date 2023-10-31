@@ -22,7 +22,7 @@ namespace Project
 
         private void LogList_Load(object sender, EventArgs e)
         {
-            Connection.conn.Open();
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

@@ -65,6 +65,9 @@ namespace Project
                                 string log_sql = "INSERT INTO logs SET log_type = 0, user = '"+Functions.AdminUsername+"', plate = '"+savePlate.Text+"', date = "+ DateTime.Now + "";                        
                                 MySqlCommand log_cmd = new MySqlCommand(log_sql, Connection.conn);
                                 log_cmd.ExecuteNonQuery();
+                                string mng_sql = "UPDATE management SET cash = cash + 200";
+                                MySqlCommand mng_cmd = new MySqlCommand(mng_sql, Connection.conn);
+                                mng_cmd.ExecuteNonQuery();
                                 MessageBox.Show("Araç başarıyla otopark içerisine kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Question);
                             }  
                             else
